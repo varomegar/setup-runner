@@ -1,0 +1,15 @@
+name: Setup Runner
+description: Instala tecnologías requeridas en el runner
+
+inputs:
+  techs:
+    description: Lista de tecnologías y versiones (ej. "java:11, python:3.11, node")
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        chmod +x ${{ github.action_path }}/install.sh
+        ${{ github.action_path }}/install.sh "${{ inputs.techs }}"
+      shell: bash
