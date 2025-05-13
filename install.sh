@@ -42,10 +42,7 @@ for item in "${ITEMS[@]}"; do
       if [ -z "$version" ]; then
         version="1.21.5"
       fi
-      wget https://golang.org/dl/go${version}.linux-amd64.tar.gz
-      sudo tar -C /usr/local -xzf go${version}.linux-amd64.tar.gz
-      echo 'export PATH=$PATH:/usr/local/go/bin' >> $HOME/.bashrc
-      source $HOME/.bashrc
+      sudo apt install golang-go -y
       ;;
     azure)
       curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
@@ -64,11 +61,9 @@ for item in "${ITEMS[@]}"; do
       curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
       ;;
     psql)
-      sudo apt-get update
       sudo apt-get install -y postgresql-client
       ;;
     ansible)
-      sudo apt-get update
       sudo apt-get install -y ansible
       ;;
     *)
