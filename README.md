@@ -1,48 +1,50 @@
 # 🚀 setup-runner GitHub Action
 
-Esta acción permite instalar tecnologías específicas en el runner de GitHub Actions usando un único input de configuración.
+This action allows you to install specific technologies on the GitHub Actions runner using a single configuration input.
 
 ---
 
-## 📦 Tecnologías Soportadas
+## 📦 Supported Technologies
 
-Esta Action puede instalar las siguientes tecnologías:
+This action can currently install the following technologies:
 
-- **Lenguajes y entornos**:  
-  - `java:<versión>`  
-  - `python:<versión>`  
-  - `node:<versión>`  
-  - `go:<versión>`  
+- **Languages and runtimes**:  
+  - `java:<version>`  
+  - `python:<version>`  
+  - `node:<version>`  
+  - `go:<version>`  
 
-- **CLIs de nube**:  
+- **Cloud CLIs**:  
   - `azure` (Azure CLI)  
   - `aws` (AWS CLI)  
   - `oc` (Red Hat OpenShift CLI)  
   - `ibm` (IBM Cloud CLI)
 
-- **Otras herramientas**:  
+- **Other tools**:  
   - `psql` (PostgreSQL CLI)  
   - `ansible`
+
+> 🛠️ *More technologies will be added over time. If you'd like to contribute, feel free to open a pull request to the `main` branch!*
 
 ---
 
 ## 📥 Inputs
 
-### `techs` (obligatorio)
+### `techs` (required)
 
-Cadena de texto con tecnologías a instalar separadas por coma.  
-Formato: `tecnologia[:versión]`
+A comma-separated string of technologies to install.  
+Format: `technology[:version]`
 
-Si no se especifica versión, se instalará la última disponible.
+If the version is not specified, the latest available version will be installed.
 
-#### Ejemplo:
+#### Example:
 
 ```yaml
 jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
-      - name: Instalar tecnologías necesarias
+      - name: Install required technologies
         uses: Varomegar/setup-runner@v1
         with:
           techs: >
@@ -54,4 +56,3 @@ jobs:
             ibm,
             psql,
             ansible
-

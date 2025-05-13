@@ -1,9 +1,9 @@
 name: Setup Runner
-description: Instala tecnologías requeridas en el runner
+description: Installs required technologies on the runner
 
 inputs:
   techs:
-    description: Lista de tecnologías y versiones (ej. "java:11, python:3.11, node")
+    description: List of technologies and versions (e.g., "java:11, python:3.11, node")
     required: true
 
 runs:

@@ -1,9 +1,3 @@
-
----
-
-## 🔧 `install.sh` — Instalador general
-
-```bash
 #!/bin/bash
 
 set -e
@@ -15,7 +9,7 @@ for item in "${ITEMS[@]}"; do
   tech=$(echo "$item" | cut -d':' -f1 | xargs)
   version=$(echo "$item" | cut -s -d':' -f2 | xargs)
 
-  echo "🔧 Instalando $tech ${version:-(última versión)}..."
+  echo "🔧 Installing $tech ${version:-(latest version)}..."
 
   case "$tech" in
     java)
@@ -78,7 +72,7 @@ for item in "${ITEMS[@]}"; do
       sudo apt-get install -y ansible
       ;;
     *)
-      echo "⚠️ Tecnología '$tech' no soportada aún."
+      echo "⚠️ Technology '$tech' is not supported yet."
       ;;
   esac
 done
